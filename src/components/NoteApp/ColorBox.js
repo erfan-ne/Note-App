@@ -4,9 +4,10 @@ export default class ColorBox extends Component {
 
     render() {
         return (
-            <div className='color-box' style={{backgroundColor: 'red'}}>
+            <div className='color-box' style={{backgroundColor: this.props.color}}>
                 
             </div>
+  
         )
     }
 }

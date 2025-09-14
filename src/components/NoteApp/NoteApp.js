@@ -25,6 +25,12 @@ export default class NoteApp extends Component {
             noteTitle: '',
             inputColor: '#fff'
         }
+
+        this.selectHandler = this.selectHandler.bind(this)
+    }
+
+    selectHandler(){
+        
     }
 
     render() {
@@ -43,7 +49,9 @@ export default class NoteApp extends Component {
                                     </div>
                                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
                                         <div id='color-select'>
-                                            <ColorBox />
+                                            {this.state.colors.map(color => (
+                                                <ColorBox color={color}/>
+                                            ))}
                                         </div>
                                     </div>
                                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto my-1 text-right">
