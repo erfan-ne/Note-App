@@ -40,10 +40,11 @@ export default class NoteApp extends Component {
     addNoteHandler(){
         if(this.state.noteTitle){
             this.setState(prevState=>({
-                notes: [...prevState.notes , this.state.noteTitle],
-                noteTitle: ''
+                notes: [...prevState.notes , {title: this.state.noteTitle , color: this.state.inputColor}],
+                noteTitle: '' ,
+                inputColor: '#fff'
             }))
-        }        
+        }
     }
 
     changeColorHandler(colorCode){
@@ -107,7 +108,7 @@ export default class NoteApp extends Component {
                                         <div className="row">
                                             <div id='listed' className="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 p-3 card-columns">
                                                 {this.state.notes.map(note=>(
-                                                    <Note title={note} color={this.state.inputColor}/>
+                                                    <Note title={note.title} color={note.color}/>
                                                 ))}
                                                 
 
