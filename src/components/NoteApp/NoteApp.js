@@ -39,8 +39,14 @@ export default class NoteApp extends Component {
 
     addNoteHandler(){
         if(this.state.noteTitle){
+            const newNote = {
+                id: Date.now() ,
+                title: this.state.noteTitle ,
+                color: this.state.inputColor
+            }
+            
             this.setState(prevState=>({
-                notes: [...prevState.notes , {title: this.state.noteTitle , color: this.state.inputColor}],
+                notes: [...prevState.notes , newNote],
                 noteTitle: '' ,
                 inputColor: '#fff'
             }))
@@ -51,6 +57,11 @@ export default class NoteApp extends Component {
         this.setState({
             inputColor: colorCode
         })
+    }
+
+    removeNote(noteID){
+        console.log(noteID);
+        
     }
 
 
@@ -108,10 +119,8 @@ export default class NoteApp extends Component {
                                         <div className="row">
                                             <div id='listed' className="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 p-3 card-columns">
                                                 {this.state.notes.map(note=>(
-                                                    <Note title={note.title} color={note.color}/>
+                                                    <Note key={note.id} title={note.title} id={note.id} color={note.color} onRemove={this.removeNote}/>
                                                 ))}
-                                                
-
                                             </div>
                                         </div>
                                     </div>
