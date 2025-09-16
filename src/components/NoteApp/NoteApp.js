@@ -38,9 +38,10 @@ export default class NoteApp extends Component {
 
     addNoteHandler(){
         if(this.state.noteTitle){
-            this.setState(prevState=>(
-                {notes: [...prevState.notes , this.state.noteTitle]}
-            ))
+            this.setState(prevState=>({
+                notes: [...prevState.notes , this.state.noteTitle],
+                noteTitle: ''
+            }))
         }        
     }
 
@@ -68,6 +69,7 @@ export default class NoteApp extends Component {
                                                     this.addNoteHandler()
                                                 }
                                             }}
+                                            value={this.state.noteTitle}
                                             style={{ backgroundColor: this.state.inputColor }}
                                             placeholder="Something here..."
                                         />
