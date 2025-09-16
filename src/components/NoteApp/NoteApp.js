@@ -27,14 +27,24 @@ export default class NoteApp extends Component {
         }
 
         this.noteTitleHandler = this.noteTitleHandler.bind(this)
+        this.addNoteHandler = this.addNoteHandler.bind(this)
     }
 
     noteTitleHandler(event){
         this.setState({
             noteTitle: event.target.value
         })
-        
     }
+
+    addNoteHandler(){
+        if(this.state.noteTitle){
+            this.setState(prevState=>(
+                {notes: [...prevState.notes , this.state.noteTitle]}
+            ))
+        }        
+    }
+
+
 
     render() {
         return (
@@ -48,7 +58,19 @@ export default class NoteApp extends Component {
                             <div className="flex row-gt-sm">
                                 <div className="flex flex-50-gt-sm">
                                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
-                                        <input id="input-field" className="form-control" type="text" onChange={this.noteTitleHandler} style={{ backgroundColor: this.state.inputColor }} placeholder="Something here..." />
+                                        <input 
+                                            id="input-field"
+                                            className="form-control"
+                                            type="text" 
+                                            onChange={this.noteTitleHandler}
+                                            onKeyDown={(event)=>{
+                                                if(event.key === "Enter"){
+                                                    this.addNoteHandler()
+                                                }
+                                            }}
+                                            style={{ backgroundColor: this.state.inputColor }}
+                                            placeholder="Something here..."
+                                        />
                                     </div>
                                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
                                         <div id='color-select'>
@@ -58,7 +80,11 @@ export default class NoteApp extends Component {
                                         </div>
                                     </div>
                                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto my-1 text-right">
-                                        <button id="btn-save" type="button" className="btn btn-outline-info"><span className="fa fa-plus" ></span></button>
+                                        <button id="btn-save" type="button" className="btn btn-outline-info"
+                                        onClick={this.addNoteHandler}
+                                        >
+                                            <span className="fa fa-plus" ></span>
+                                        </button>
                                         <button id="btn-delete" type="button" className="btn btn-outline-danger"><span id="btn-icon"
                                             className="fa fa-eraser"></span></button>
                                     </div>
