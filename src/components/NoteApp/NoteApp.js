@@ -29,6 +29,7 @@ export default class NoteApp extends Component {
         this.noteTitleHandler = this.noteTitleHandler.bind(this)
         this.addNoteHandler = this.addNoteHandler.bind(this)
         this.changeColorHandler = this.changeColorHandler.bind(this)
+        this.removeNote = this.removeNote.bind(this)
     }
 
     noteTitleHandler(event){
@@ -60,7 +61,12 @@ export default class NoteApp extends Component {
     }
 
     removeNote(noteID){
-        console.log(noteID);
+        const newNoteList = this.state.notes.filter(note=>{
+            return note.id !== noteID
+        })
+        this.setState({
+            notes: newNoteList
+        })
         
     }
 
@@ -119,7 +125,7 @@ export default class NoteApp extends Component {
                                         <div className="row">
                                             <div id='listed' className="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 p-3 card-columns">
                                                 {this.state.notes.map(note=>(
-                                                    <Note key={note.id} title={note.title} id={note.id} color={note.color} onRemove={this.removeNote}/>
+                                                    <Note key={note.id} {...note} onRemove={this.removeNote}/>
                                                 ))}
                                             </div>
                                         </div>

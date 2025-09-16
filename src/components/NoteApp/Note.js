@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Note extends Component {
 
     clickHandler(){
-        this.props.onRemove(this.props)
+        this.props.onRemove(this.props.id)
     }
 
     render() {
