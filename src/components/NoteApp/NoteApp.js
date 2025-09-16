@@ -28,6 +28,7 @@ export default class NoteApp extends Component {
 
         this.noteTitleHandler = this.noteTitleHandler.bind(this)
         this.addNoteHandler = this.addNoteHandler.bind(this)
+        this.changeColorHandler = this.changeColorHandler.bind(this)
     }
 
     noteTitleHandler(event){
@@ -43,6 +44,11 @@ export default class NoteApp extends Component {
                 noteTitle: ''
             }))
         }        
+    }
+
+    changeColorHandler(colorCode){
+        console.log(colorCode);
+        
     }
 
 
@@ -77,7 +83,7 @@ export default class NoteApp extends Component {
                                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
                                         <div id='color-select'>
                                             {this.state.colors.map(color => (
-                                                <ColorBox color={color}/>
+                                                <ColorBox color={color} onChangeColor={this.changeColorHandler}/>
                                             ))}
                                         </div>
                                     </div>
