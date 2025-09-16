@@ -108,7 +108,7 @@ export default class NoteApp extends Component {
                                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
                                         <div id='color-select'>
                                             {this.state.colors.map(color => (
-                                                <ColorBox color={color} onChangeColor={this.changeColorHandler}/>
+                                                <ColorBox key={color} color={color} onChangeColor={this.changeColorHandler}/>
                                             ))}
                                         </div>
                                     </div>
