@@ -30,7 +30,7 @@ export default class NoteApp extends Component {
         this.addNoteHandler = this.addNoteHandler.bind(this)
         this.changeColorHandler = this.changeColorHandler.bind(this)
         this.removeNote = this.removeNote.bind(this)
-        this.deleteNotes = this.deleteNotes.bind(this)
+        this.emptyNotes = this.emptyNotes.bind(this)
     }
 
     noteTitleHandler(event){
@@ -70,7 +70,7 @@ export default class NoteApp extends Component {
         })
     }
 
-    deleteNotes(){
+    emptyNotes(){
         this.setState({
             notes: []
         })
@@ -118,7 +118,7 @@ export default class NoteApp extends Component {
                                         >
                                             <span className="fa fa-plus" ></span>
                                         </button>
-                                        <button id="btn-delete" type="button" className="btn btn-outline-danger" onClick={this.deleteNotes}><span id="btn-icon"
+                                        <button id="btn-delete" type="button" className="btn btn-outline-danger" onClick={this.emptyNotes}><span id="btn-icon"
                                             className="fa fa-eraser"></span></button>
                                     </div>
                                 </div>
