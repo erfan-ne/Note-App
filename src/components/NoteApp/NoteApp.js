@@ -47,8 +47,9 @@ export default class NoteApp extends Component {
     }
 
     changeColorHandler(colorCode){
-        console.log(colorCode);
-        
+        this.setState({
+            inputColor: colorCode
+        })
     }
 
 
