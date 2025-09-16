@@ -30,7 +30,9 @@ export default class NoteApp extends Component {
     }
 
     noteTitleHandler(event){
-        
+        this.setState({
+            noteTitle: event.target.value
+        })
         
     }
 
