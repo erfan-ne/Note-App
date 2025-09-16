@@ -26,10 +26,11 @@ export default class NoteApp extends Component {
             inputColor: '#fff'
         }
 
-        this.selectHandler = this.selectHandler.bind(this)
+        this.noteTitleHandler = this.noteTitleHandler.bind(this)
     }
 
-    selectHandler(){
+    noteTitleHandler(event){
+        
         
     }
 
@@ -45,7 +46,7 @@ export default class NoteApp extends Component {
                             <div className="flex row-gt-sm">
                                 <div className="flex flex-50-gt-sm">
                                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
-                                        <input id="input-field" className="form-control" type="text" style={{ backgroundColor: this.state.inputColor }} placeholder="Something here..." />
+                                        <input id="input-field" className="form-control" type="text" onChange={this.noteTitleHandler} style={{ backgroundColor: this.state.inputColor }} placeholder="Something here..." />
                                     </div>
                                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-auto">
                                         <div id='color-select'>
