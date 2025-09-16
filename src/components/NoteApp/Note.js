@@ -4,7 +4,7 @@ export default class Note extends Component {
 
     render() {
         return (
-            <div className="card shadow-sm rounded" style={{ backgroundColor: '#fff' }}><p className="card-text p-3">Go To Gym</p></div>
+            <div className="card shadow-sm rounded" style={{ backgroundColor: '#fff' }}><p className="card-text p-3">{this.props.title}</p></div>
         )
     }
 }
