@@ -97,8 +97,10 @@ export default class NoteApp extends Component {
                                     <div className="container">
                                         <div className="row">
                                             <div id='listed' className="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 p-3 card-columns">
-
-                                                <Note />
+                                                {this.state.notes.map(note=>(
+                                                    <Note/>
+                                                ))}
+                                                
 
                                             </div>
                                         </div>
